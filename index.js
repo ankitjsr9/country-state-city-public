@@ -15,7 +15,7 @@ try {
     connection.connect();
     databaseConnectionSuccess = true;
   } catch (errorInside) {
-    console.log(error);
+    console.log(errorInside);
   }
 } catch (error) {
   console.log(error);

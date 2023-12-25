@@ -2,12 +2,20 @@ const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "qmpz#1029",
-  database: "new_schema",
-});
+var databaseConnectionSuccess = false;
+
+try {
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "qmpz#1029",
+    database: "new_schema",
+  });
+  connection.connect();
+  databaseConnectionSuccess = true;
+} catch (error) {
+  console.log(error);
+}
 
 const countryValidate = (data) => {
   let errors = {};
@@ -15,8 +23,16 @@ const countryValidate = (data) => {
   const isValid = Object.keys(errors).length === 0;
   return { errors, isValid };
 };
-connection.connect();
+
 const getCountryList = (request, response) => {
+  if (!databaseConnectionSuccess) {
+    return response.status(400).json({
+      status: false,
+      error:
+        "Failed to Make database connection. Please try again later or contact ankitjsr9@gmail.com.",
+      data: [],
+    });
+  }
   connection.query(
     "SELECT country_name AS countryName, country_id AS countryId, iso3, iso2, phone_code AS phoneCode, capital, currency, currency_symbol AS currencySymbol, region, subregion, latitude, longitude, emojiU FROM address_country ORDER BY country_name ASC",
     function (error, results, fields) {
@@ -72,6 +88,14 @@ const validateGetCityList = (data) => {
 const getStateList = (request, response) => {
   const responsevalidateGetStateList = validateGetStateList(request);
   if (responsevalidateGetStateList.isValid) {
+    if (!databaseConnectionSuccess) {
+      return response.status(400).json({
+        status: false,
+        error:
+          "Failed to Make database connection. Please try again later or contact ankitjsr9@gmail.com.",
+        data: [],
+      });
+    }
     let countryId = responsevalidateGetStateList.countryId;
     connection.query(
       "SELECT state_name AS stateName, state_id AS stateId, state_code AS stateCode, country_id AS countryId, state_latitude AS lattitude, state_longitude AS longitude FROM address_state WHERE country_id = '" +
@@ -112,6 +136,14 @@ const getStateList = (request, response) => {
 const getCityList = (request, response) => {
   const responsevalidateGetCityList = validateGetCityList(request);
   if (responsevalidateGetCityList.isValid) {
+    if (!databaseConnectionSuccess) {
+      return response.status(400).json({
+        status: false,
+        error:
+          "Failed to Make database connection. Please try again later or contact ankitjsr9@gmail.com.",
+        data: [],
+      });
+    }
     let countryId = responsevalidateGetCityList.countryId;
     let stateId = responsevalidateGetCityList.stateId;
     connection.query(

@@ -4,12 +4,16 @@
   "description": "This API will be used to fetch country, state and city list.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "mysql": "^2.18.1"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }

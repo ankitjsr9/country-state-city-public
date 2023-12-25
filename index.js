@@ -11,8 +11,12 @@ try {
     password: "qmpz#1029",
     database: "new_schema",
   });
-  connection.connect();
-  databaseConnectionSuccess = true;
+  try {
+    connection.connect();
+    databaseConnectionSuccess = true;
+  } catch (errorInside) {
+    console.log(error);
+  }
 } catch (error) {
   console.log(error);
 }

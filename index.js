@@ -190,7 +190,7 @@ const getCityList = (request, response) => {
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "static", "/JS/highlight.min.js")));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {

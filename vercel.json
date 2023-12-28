@@ -9,10 +9,6 @@
   "routes": [
     { "handle": "filesystem" },
     {
-      "src": "/JS/highlight.min.js",
-      "dest": "./static/JS/highlight.min.js"
-    },
-    {
       "src": "/(.*)",
       "dest": "./index.js"
     }

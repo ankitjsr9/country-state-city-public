@@ -8,9 +8,6 @@
   ],
   "routes": [
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/CSS/style.css",
       "dest": "./static/CSS/style.css"
     },

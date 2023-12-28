@@ -3,14 +3,13 @@ const mysql = require("mysql");
 const path = require("path");
 
 var databaseConnectionSuccess = false;
-
+const connection = mysql.createConnection({
+  host: "sql12.freemysqlhosting.net",
+  user: "sql12673332",
+  password: "t5kLGfHsm3",
+  database: "sql12673332",
+});
 try {
-  const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "qmpz#1029",
-    database: "new_schema",
-  });
   try {
     connection.connect();
     databaseConnectionSuccess = true;

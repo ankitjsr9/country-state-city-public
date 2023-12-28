@@ -7,7 +7,13 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/CSS/style.css",
+      "dest": "./static/CSS/style.css"
+    },
     {
       "src": "/(.*)",
       "dest": "./index.js"

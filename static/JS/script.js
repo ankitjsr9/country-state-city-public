@@ -51,7 +51,7 @@ function calculElements() {
 
 function onScroll() {
   var scroll = window.pageYOffset;
-  console.log("scroll", scroll, elements);
+
   for (var i = 0; i < elements.length; i++) {
     var section = elements[i];
     if (scroll <= section.maxHeight) {

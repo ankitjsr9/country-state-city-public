@@ -1,0 +1,610 @@
+<!--
+ API Documentation HTML Template  - 1.0.1
+ Copyright © 2016 Florian Nicolas
+ Licensed under the MIT license.
+ https://github.com/ticlekiwi/API-Documentation-HTML-Template
+ !-->
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>API - Documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="ticlekiwi">
+
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script src="/JS/highlight.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&family=Source+Code+Pro:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/hightlightjs-dark.css" media="all">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/style.css" media="all">
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="left-menu">
+        <div class="content-logo">
+            <div class="logo">
+                <img alt="platform by Emily van den Heever from the Noun Project"
+                    title="platform by Emily van den Heever from the Noun Project" src="/images/logo.png" height="32" />
+                <span>API Documentation</span>
+            </div>
+            <button class="burger-menu-icon" id="button-menu-mobile">
+                <svg width="34" height="34" viewBox="0 0 100 100">
+                    <path class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058">
+                    </path>
+                    <path class="line line2" d="M 20,50 H 80"></path>
+                    <path class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu-closer"></div>
+        <div class="content-menu">
+            <div class="content-infos">
+                <div class="info"><b>Version:</b> 1.0.0</div>
+                <div class="info"><b>Last Updated:</b> 24th Dec, 2023</div>
+            </div>
+            <ul>
+                <li class="scroll-to-link active" data-target="content-get-demo">
+                    <a>DEMO</a>
+                </li>
+                <li class="scroll-to-link active" data-target="content-get-started">
+                    <a>GET STARTED</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-country-list">
+                    <a>GET COUNTRY LIST</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-state-list">
+                    <a>GET STATE LIST</a>
+                </li>
+                <li class="scroll-to-link" data-target="content-get-city-list">
+                    <a>GET CITY LIST</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-page">
+        <div class="content-code"></div>
+        <div class="content">
+            <div class="overflow-hidden content-section" id="content-get-demo">
+                <h1>DEMO</h1>
+                <pre></pre>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label select-label" for="select-country">Select Country</label>
+                            <select class="form-control form-select mb-3" id="countryList" aria-label="select country">
+                                <option selected disabled>Select Country</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label class="form-label select-label"="select-state">Select State</label>
+                            <select class="form-control form-select mb-3" id="stateList" aria-label="select state">
+                                <option selected disabled>Select State</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label class="form-label select-label" for="select-city">Select City</label>
+                            <select class="form-control form-select mb-3" id="cityList" aria-label="select city">
+                                <option selected disabled>Select City</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-started">
+                <h1>Get started</h1>
+                <pre>
+            API Endpoint
+          {{hostServer}}
+                  </pre>
+                <div>
+                    <p><span>This RESTful API,</span><span> designed to empower developers with comprehensive
+                            location-based information,</span><span> unlocks a wealth of possibilities for your
+                            applications.</span><span> Explore countries,</span><span> states,</span><span> and cities
+                            around the
+                            globe,</span><span> accessing essential details such as:</span></p><span>
+                    </span>
+                    <ul><span>
+                        </span>
+                        <li><strong>Country:</strong><span> Currency,</span><span> coordinates,</span><span>
+                                region,</span><span> and more</span></li><span>
+                        </span>
+                        <li><strong>State:</strong><span> Name,</span><span> country,</span><span> and
+                                region</span></li><span>
+                        </span>
+                        <li><strong>City:</strong><span> Name,</span><span> state,</span><span>
+                                country,</span><span> coordinates,</span><span> and region</span></li><span>
+                        </span>
+                    </ul><span>
+                    </span>
+                    <p><strong>Key Features:</strong></p><span>
+                    </span>
+                    <ul><span>
+                        </span>
+                        <li><strong>RESTful Architecture:</strong><span> Adheres to RESTful principles for
+                                seamless integration and compatibility.</span></li><span>
+                        </span>
+                        <li><strong>Vercel Hosting:</strong><span> Enjoys reliable performance and
+                                scalability on the Vercel platform.</span></li><span>
+                        </span>
+                        <li><strong>Easy-to-Use Endpoints:</strong><span> Intuitive endpoints for
+                                straightforward data retrieval.</span></li><span>
+                        </span>
+                        <li><strong>JSON Data Format:</strong><span> Responses delivered in JSON for
+                                effortless parsing and integration.</span></li><span>
+                        </span>
+                        <li><strong>Comprehensive Data Coverage:</strong><span> Access a vast repository of
+                                global location information.</span></li><span>
+                        </span>
+                    </ul><span>
+                    </span>
+                    <p><strong>Ideal Use Cases:</strong></p><span>
+                    </span>
+                    <ul><span>
+                        </span>
+                        <li><strong>Geocoding and Reverse Geocoding:</strong><span> Convert addresses to
+                                coordinates and vice versa.</span></li><span>
+                        </span>
+                        <li><strong>Dynamic Location-Based Content:</strong><span> Personalize experiences
+                                based on user locations.</span></li><span>
+                        </span>
+                        <li><strong>E-commerce Shipping and Logistics:</strong><span> Streamline shipping
+                                calculations and estimations.</span></li><span>
+                        </span>
+                        <li><strong>Travel and Tourism Applications:</strong><span> Enhance trip planning
+                                and destination discovery.</span></li><span>
+                        </span>
+                        <li><strong>And Many More:</strong><span> Unleash your creativity with diverse
+                                location-centric features.</span></li><span>
+                        </span>
+                    </ul><span>
+                    </span>
+                    <p><strong>Contact Us:</strong></p><span>
+                    </span>
+                    <p><span>We're here to help you unleash the power of location data.</span><span> Reach
+                            out for any inquiries or assistance.</span><span> (ankitjsr9@gmail.com)</span></p>
+                </div>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-country-list">
+                <h2>GET COUNTRY LIST </h2>
+                <pre><code class="bash">
+  # Here is a curl example
+  curl \
+  -X GET {{hostServer}} 
+                  </code></pre>
+                <p>
+                    To get country list you need to make a GET call to the following url :<br>
+                    <code class="higlighted break-word">{{hostServer}}</code>
+                </p>
+                <br>
+                <pre><code class="json">
+                    {
+                        "status": true,
+                        "data": [
+                            {
+                                "countryName": "Afghanistan",
+                                "countryId": 1,
+                                "iso3": "AFG",
+                                "iso2": "AF",
+                                "phoneCode": "93",
+                                "capital": "Kabul",
+                                "currency": "AFN",
+                                "currencySymbol": "؋",
+                                "region": "Asia",
+                                "subregion": "Southern Asia",
+                                "latitude": "33.00000000",
+                                "longitude": "65.00000000",
+                                "emojiU": "U+1F1E6 U+1F1EB"
+                            },
+                            {
+                                "countryName": "Aland Islands",
+                                "countryId": 2,
+                                "iso3": "ALA",
+                                "iso2": "AX",
+                                "phoneCode": "+358-18",
+                                "capital": "Mariehamn",
+                                "currency": "EUR",
+                                "currencySymbol": "€",
+                                "region": "Europe",
+                                "subregion": "Northern Europe",
+                                "latitude": "60.11666700",
+                                "longitude": "19.90000000",
+                                "emojiU": "U+1F1E6 U+1F1FD"
+                            },
+                            {
+                                "countryName": "Albania",
+                                "countryId": 3,
+                                "iso3": "ALB",
+                                "iso2": "AL",
+                                "phoneCode": "355",
+                                "capital": "Tirana",
+                                "currency": "ALL",
+                                "currencySymbol": "Lek",
+                                "region": "Europe",
+                                "subregion": "Southern Europe",
+                                "latitude": "41.00000000",
+                                "longitude": "20.00000000",
+                                "emojiU": "U+1F1E6 U+1F1F1"
+                            },
+                            {
+                                "countryName": "Algeria",
+                                "countryId": 4,
+                                "iso3": "DZA",
+                                "iso2": "DZ",
+                                "phoneCode": "213",
+                                "capital": "Algiers",
+                                "currency": "DZD",
+                                "currencySymbol": "دج",
+                                "region": "Africa",
+                                "subregion": "Northern Africa",
+                                "latitude": "28.00000000",
+                                "longitude": "3.00000000",
+                                "emojiU": "U+1F1E9 U+1F1FF"
+                            },
+                            {
+                                "countryName": "American Samoa",
+                                "countryId": 5,
+                                "iso3": "ASM",
+                                "iso2": "AS",
+                                "phoneCode": "+1-684",
+                                "capital": "Pago Pago",
+                                "currency": "USD",
+                                "currencySymbol": "$",
+                                "region": "Oceania",
+                                "subregion": "Polynesia",
+                                "latitude": "-14.33333333",
+                                "longitude": "-170.00000000",
+                                "emojiU": "U+1F1E6 U+1F1F8"
+                            },
+                            {
+                                "countryName": "Andorra",
+                                "countryId": 6,
+                                "iso3": "AND",
+                                "iso2": "AD",
+                                "phoneCode": "376",
+                                "capital": "Andorra la Vella",
+                                "currency": "EUR",
+                                "currencySymbol": "€",
+                                "region": "Europe",
+                                "subregion": "Southern Europe",
+                                "latitude": "42.50000000",
+                                "longitude": "1.50000000",
+                                "emojiU": "U+1F1E6 U+1F1E9"
+                            },
+                            {
+                                "countryName": "Angola",
+                                "countryId": 7,
+                                "iso3": "AGO",
+                                "iso2": "AO",
+                                "phoneCode": "244",
+                                "capital": "Luanda",
+                                "currency": "AOA",
+                                "currencySymbol": "Kz",
+                                "region": "Africa",
+                                "subregion": "Middle Africa",
+                                "latitude": "-12.50000000",
+                                "longitude": "18.50000000",
+                                "emojiU": "U+1F1E6 U+1F1F4"
+                            },
+                            {
+                                "countryName": "Anguilla",
+                                "countryId": 8,
+                                "iso3": "AIA",
+                                "iso2": "AI",
+                                "phoneCode": "+1-264",
+                                "capital": "The Valley",
+                                "currency": "XCD",
+                                "currencySymbol": "$",
+                                "region": "Americas",
+                                "subregion": "Caribbean",
+                                "latitude": "18.25000000",
+                                "longitude": "-63.16666666",
+                                "emojiU": "U+1F1E6 U+1F1EE"
+                            },
+                            {
+                                "countryName": "Antarctica",
+                                "countryId": 9,
+                                "iso3": "ATA",
+                                "iso2": "AQ",
+                                "phoneCode": "672",
+                                "capital": "",
+                                "currency": "AAD",
+                                "currencySymbol": "$",
+                                "region": "Polar",
+                                "subregion": "",
+                                "latitude": "-74.65000000",
+                                "longitude": "4.48000000",
+                                "emojiU": "U+1F1E6 U+1F1F6"
+                            }
+                        ],
+                        "error": ""
+                    }
+                  </code></pre>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-state-list">
+                <h2>GET STATE LIST </h2>
+                <pre><code class="bash">
+  # Here is a curl example
+  curl \
+  -X GET {{hostServer}}{countryId}
+                  </code></pre>
+                <p>
+                    To get state list you need to make a GET call to the following url :<br>
+                    <code class="higlighted break-word">{{hostServer}}{countryId}</code>
+                </p>
+                <br>
+                <pre><code class="json">
+                    {
+                        "status": true,
+                        "data": [
+                            {
+                                "stateName": "Andaman and Nicobar Islands",
+                                "stateId": 4023,
+                                "stateCode": "AN",
+                                "lattitude": "11.74008670",
+                                "longitude": "92.65864010"
+                            },
+                            {
+                                "stateName": "Andhra Pradesh",
+                                "stateId": 4017,
+                                "stateCode": "AP",
+                                "lattitude": "15.91289980",
+                                "longitude": "79.73998750"
+                            },
+                            {
+                                "stateName": "Arunachal Pradesh",
+                                "stateId": 4024,
+                                "stateCode": "AR",
+                                "lattitude": "28.21799940",
+                                "longitude": "94.72775280"
+                            },
+                            {
+                                "stateName": "Assam",
+                                "stateId": 4027,
+                                "stateCode": "AS",
+                                "lattitude": "26.20060430",
+                                "longitude": "92.93757390"
+                            },
+                            {
+                                "stateName": "Bihar",
+                                "stateId": 4037,
+                                "stateCode": "BR",
+                                "lattitude": "25.09607420",
+                                "longitude": "85.31311940"
+                            },
+                            {
+                                "stateName": "Chandigarh",
+                                "stateId": 4031,
+                                "stateCode": "CH",
+                                "lattitude": "30.73331480",
+                                "longitude": "76.77941790"
+                            },
+                            {
+                                "stateName": "Chhattisgarh",
+                                "stateId": 4040,
+                                "stateCode": "CT",
+                                "lattitude": "21.27865670",
+                                "longitude": "81.86614420"
+                            },
+                            {
+                                "stateName": "Dadra and Nagar Haveli and Daman and Diu",
+                                "stateId": 4033,
+                                "stateCode": "DH",
+                                "lattitude": "20.39737360",
+                                "longitude": "72.83279910"
+                            },
+                            {
+                                "stateName": "Delhi",
+                                "stateId": 4021,
+                                "stateCode": "DL",
+                                "lattitude": "28.70405920",
+                                "longitude": "77.10249020"
+                            },
+                            {
+                                "stateName": "Goa",
+                                "stateId": 4009,
+                                "stateCode": "GA",
+                                "lattitude": "15.29932650",
+                                "longitude": "74.12399600"
+                            }
+                        ],
+                        "error": ""
+                    }
+                  </code></pre>
+            </div>
+            <div class="overflow-hidden content-section" id="content-get-city-list">
+                <h2>GET CITY LIST </h2>
+                <pre><code class="bash">
+  # Here is a curl example
+  curl \
+  -X GET {{hostServer}}{countryId}/{stateId}
+                  </code></pre>
+                <p>
+                    To get characters you need to make a GET call to the following url :<br>
+                    <code class="higlighted break-word">{{hostServer}}{countryId}/{stateId}</code>
+                </p>
+                <br>
+                <pre><code class="json">
+                    {
+                        "status": true,
+                        "data": [
+                            {
+                                "cityName": "Bamboo Flat",
+                                "cityId": 57837,
+                                "lattitude": "11.70000000",
+                                "longitude": "92.71667000",
+                                "wikiDataId": "Q627037",
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Bombuflat",
+                                "cityId": 209297,
+                                "lattitude": null,
+                                "longitude": null,
+                                "wikiDataId": null,
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Garacharma",
+                                "cityId": 209308,
+                                "lattitude": null,
+                                "longitude": null,
+                                "wikiDataId": null,
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Havelock",
+                                "cityId": 213980,
+                                "lattitude": null,
+                                "longitude": null,
+                                "wikiDataId": null,
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Mayabunder",
+                                "cityId": 213979,
+                                "lattitude": "12.925941",
+                                "longitude": "92.896823",
+                                "wikiDataId": null,
+                                "continent": "Seven Seas"
+                            },
+                            {
+                                "cityName": "Neill Island",
+                                "cityId": 214004,
+                                "lattitude": "11.831535",
+                                "longitude": "93.0420907",
+                                "wikiDataId": "",
+                                "continent": "Asia"
+                            },
+                            {
+                                "cityName": "Nicobar",
+                                "cityId": 133213,
+                                "lattitude": "7.03002000",
+                                "longitude": "93.79028000",
+                                "wikiDataId": "Q797295",
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Port Blair",
+                                "cityId": 133482,
+                                "lattitude": "11.66613000",
+                                "longitude": "92.74635000",
+                                "wikiDataId": "Q203476",
+                                "continent": null
+                            },
+                            {
+                                "cityName": "Rangat",
+                                "cityId": 209319,
+                                "lattitude": "12.50595",
+                                "longitude": "92.9155",
+                                "wikiDataId": null,
+                                "continent": ""
+                            },
+                            {
+                                "cityName": "South Andaman",
+                                "cityId": 134006,
+                                "lattitude": "10.75776000",
+                                "longitude": "92.52136000",
+                                "wikiDataId": "Q796979",
+                                "continent": null
+                            }
+                        ],
+                        "error": ""
+                    }
+                  </code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/script.js"></script>
+    <script>
+        var host = "{{hostServer}}";
+        var globalCountryId = 0;
+        var globalStateId = 0;
+        async function makeXHRRequest(endPoint, parameters) {
+            return new Promise(function (resolve, reject) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        resolve(JSON.parse(xhttp.responseText));
+                    }
+                };
+                xhttp.onerror = function () {
+                    reject({
+                        status: false,
+                        error: xhr.statusText
+                    });
+                };
+                xhttp.open("GET", endPoint + parameters);
+                xhttp.setRequestHeader('Content-Type', 'application/json');
+                xhttp.send();
+            });
+        }
+        async function getCountryList() {
+            var countryList = await makeXHRRequest(host, "");
+            if (countryList.status) {
+                var htmlContent = `<option value="" selected disabled>Select Country</option>`;
+                countryList.data.forEach(function (e) {
+                    htmlContent = `${htmlContent} <option value="${e.countryId}">${e.countryName}</option>`;
+                });
+                document.getElementById("countryList").innerHTML = htmlContent;
+            }
+        }
+        async function getStateList(countryId) {
+            var stateList = await makeXHRRequest(host, countryId);
+            if (stateList.status) {
+                var htmlContent = `<option value="" selected disabled>Select State</option>`;
+                stateList.data.forEach(function (e) {
+                    htmlContent = `${htmlContent} <option data-countryId="${e.countryId}" value="${e.stateId}">${e.stateName}</option>`;
+                });
+                document.getElementById("stateList").innerHTML = htmlContent;
+            }
+        }
+        async function getCityList(countryId, stateId) {
+            var cityList = await makeXHRRequest(host, countryId + "/" + stateId);
+            if (cityList.status) {
+                var htmlContent = `<option value="" selected disabled>Select State</option>`;
+                cityList.data.forEach(function (e) {
+                    htmlContent = `${htmlContent} <option data-countryId="${e.countryId}" data-stateId="${e.stateId}" value="${e.cityId}">${e.cityName}</option>`;
+                });
+                document.getElementById("cityList").innerHTML = htmlContent;
+            }
+        }
+        window.onload = () => {
+            getCountryList();
+            var countryListSelector = document.getElementById("countryList");
+            var stateListSelector = document.getElementById("stateList");
+            countryListSelector.addEventListener("change", function () {
+                let countryId = (this.value);
+                globalCountryId = countryId;
+                document.getElementById("stateList").innerHTML = `<option value="" selected disabled>Select State</option>`;
+                document.getElementById("cityList").innerHTML = `<option value="" selected disabled>Select City</option>`;
+                getStateList(countryId);
+            });
+            stateListSelector.addEventListener("change", function () {
+                let stateId = (this.value);
+                globalStateId = stateId;
+                document.getElementById("cityList").innerHTML = `<option value="" selected disabled>Select City</option>`;
+                getCityList(globalCountryId, stateId);
+            });
+        }
+    </script>
+</body>
+
+</html>

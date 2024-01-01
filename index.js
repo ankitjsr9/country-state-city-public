@@ -2,6 +2,26 @@ const express = require("express");
 const mysql = require("mysql");
 const path = require("path");
 const fs = require("fs");
+const hbs = require("hbs");
+const cors = require("cors");
+
+var whitelist = ["https://country-state-city-three.vercel.app"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(
+        JSON.stringify({
+          status: false,
+          error: "Contact ankitprojectsdev@gmail.com to access this API.",
+          data: [],
+        }),
+        false
+      );
+    }
+  },
+};
 
 var databaseConnectionSuccess = false;
 
@@ -198,14 +218,26 @@ const getCityList = (request, response) => {
 
 const app = express();
 const port = 3000;
+app.set("view engine", "hbs");
 
 app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/api/v1/:countryId/:stateId", getCityList);
-app.get("/api/v1/:countryId", getStateList);
-app.get("/api/v1/", getCountryList);
+app.set("views", "public");
+
+app.options("/api/v1/:countryId/:stateId", cors(corsOptions));
+app.get("/api/v1/:countryId/:stateId", cors(corsOptions), getCityList);
+
+app.options("/api/v1/:countryId", cors(corsOptions));
+app.get("/api/v1/:countryId", cors(corsOptions), getStateList);
+
+app.get("/api/v1/", cors(corsOptions));
+app.get("/api/v1/", cors(corsOptions), getCountryList);
+
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "/views/index.html"));
+  res.render("views/index.hbs", {
+    hostServer: req.protocol + "://" + req.headers.host + "/api/v1/",
+  });
 });
 
 app.listen(port, () => {

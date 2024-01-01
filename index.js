@@ -6,11 +6,11 @@ const fs = require("fs");
 var databaseConnectionSuccess = false;
 
 const connection = mysql.createConnection({
-  host: "mysql-147f299b-netflixpr45-2823.a.aivencloud.com",
+  host: "mysql-21979096-country-state-city.a.aivencloud.com",
   user: "ankit",
-  password: "AVNS_7Xj0XqGo9KoTM5a9SMn",
+  password: "AVNS_0q4cK3OKmWyio4hmQ2d",
   database: "country_state_city",
-  port: 25447,
+  port: 14212,
   ssl: {
     rejectUnauthorized: true,
     ca: fs.readFileSync(__dirname + "/ssl/ca.pem").toString(),

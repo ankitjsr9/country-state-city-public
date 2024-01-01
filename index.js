@@ -12,7 +12,7 @@ var corsOptions = {
       callback(null, true);
     } else {
       callback(
-        new Error("Please contact ankitprojectsdev@gmail.com access this API."),
+        new Error("Please contact ankitprojectsdev@gmail.com access this API.."),
         false
       );
     }

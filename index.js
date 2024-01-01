@@ -22,15 +22,11 @@ var corsOptions = {
 var databaseConnectionSuccess = false;
 
 const connection = mysql.createConnection({
-  host: "mysql-21979096-country-state-city.a.aivencloud.com",
-  user: "ankit",
-  password: "AVNS_0q4cK3OKmWyio4hmQ2d",
-  database: "country_state_city",
-  port: 14212,
-  ssl: {
-    rejectUnauthorized: true,
-    ca: fs.readFileSync(__dirname + "/ssl/ca.pem").toString(),
-  },
+  host: "",
+  user: "",
+  password: "",
+  database: "",
+  port: 1234,
 });
 try {
   try {

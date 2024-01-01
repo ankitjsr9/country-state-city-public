@@ -8,23 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/CSS/style.css",
-      "dest": "./static/CSS/style.css"
-    },
-    {
-      "src": "/",
-      "dest": "./index.js"
-    },
-    {
-      "src": "/api/v1/",
-      "dest": "./index.js"
-    },
-    {
-      "src": "/api/v1/:countryId",
-      "dest": "./index.js"
-    },
-    {
-      "src": "/api/v1/:countryId/:stateId",
+      "src": "/(.*)",
       "dest": "./index.js"
     }
   ]

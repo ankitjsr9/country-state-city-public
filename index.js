@@ -192,12 +192,12 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, "static")));
 
+app.get("/api/v1/:countryId/:stateId", getCityList);
+app.get("/api/v1/:countryId", getStateList);
+app.get("/api/v1/", getCountryList);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "/views/index.html"));
 });
-app.get("/api/v1/", getCountryList);
-app.get("/api/v1/:countryId", getStateList);
-app.get("/api/v1/:countryId/:stateId", getCityList);
 
 app.listen(port, () => {
   console.log("Running");

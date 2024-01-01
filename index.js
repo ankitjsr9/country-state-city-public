@@ -235,6 +235,7 @@ app.get("/api/v1/", cors(corsOptions));
 app.get("/api/v1/", cors(corsOptions), getCountryList);
 
 app.get("/", (req, res) => {
+  console.log(req);
   res.render("views/index.hbs", {
     hostServer: req.protocol + "://" + req.headers.host + "/api/v1/",
   });

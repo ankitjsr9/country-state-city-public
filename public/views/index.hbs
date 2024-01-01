@@ -553,6 +553,9 @@
                 };
                 xhttp.open("GET", endPoint + parameters);
                 xhttp.setRequestHeader('Content-Type', 'application/json');
+                xhttp.setRequestHeader('Accept', 'application/json');
+                xhttp.setRequestHeader('cache', 'no-store');
+                xhttp.setRequestHeader('customHeader', 'key');
                 xhttp.send();
             });
         }

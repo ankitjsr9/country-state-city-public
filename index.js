@@ -5,7 +5,10 @@ const fs = require("fs");
 const hbs = require("hbs");
 const cors = require("cors");
 
-var whitelist = ["https://country-state-city-three.vercel.app"];
+var whitelist = [
+  "https://country-state-city-three.vercel.app",
+  "http://localhost:3000",
+];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

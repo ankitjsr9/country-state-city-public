@@ -5,21 +5,14 @@ const fs = require("fs");
 const hbs = require("hbs");
 const cors = require("cors");
 
-var whitelist = [
-  "https://country-state-city-three.vercel.app",
-  "http://localhost:3000",
-];
+var whitelist = ["https://country-state-city-three.vercel.app"];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(
-        JSON.stringify({
-          status: false,
-          error: "Contact ankitprojectsdev@gmail.com to access this API.",
-          data: [],
-        }),
+        new Error("Please contact ankitprojectsdev@gmail.com access this API"),
         false
       );
     }
@@ -228,14 +221,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", "public");
 
-app.options("/api/v1/:countryId/:stateId", cors(corsOptions));
-app.get("/api/v1/:countryId/:stateId", cors(corsOptions), getCityList);
+app.post("/api/v1/:countryId/:stateId", cors(corsOptions), getCityList);
 
-app.options("/api/v1/:countryId", cors(corsOptions));
-app.get("/api/v1/:countryId", cors(corsOptions), getStateList);
+app.post("/api/v1/:countryId", cors(corsOptions), getStateList);
 
-app.get("/api/v1/", cors(corsOptions));
-app.get("/api/v1/", cors(corsOptions), getCountryList);
+app.post("/api/v1/", cors(corsOptions), getCountryList);
 
 app.get("/", (req, res) => {
   res.render("views/index.hbs", {

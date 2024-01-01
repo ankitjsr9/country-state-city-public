@@ -12,7 +12,19 @@
       "dest": "./static/CSS/style.css"
     },
     {
-      "src": "/(.*)",
+      "src": "/",
+      "dest": "./index.js"
+    },
+    {
+      "src": "/api/v1/",
+      "dest": "./index.js"
+    },
+    {
+      "src": "/api/v1/:countryId",
+      "dest": "./index.js"
+    },
+    {
+      "src": "/api/v1/:countryId/:stateId",
       "dest": "./index.js"
     }
   ]
